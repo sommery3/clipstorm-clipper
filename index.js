@@ -43,11 +43,9 @@ app.post("/clip", async (req, res) => {
 
       // Add watermark for free users
       if (watermark) {
-        cmd = cmd.videoFilters(
-  "drawtext=text='clipstorm.ai':fontcolor=white:fontsize=24:alpha=0.6:x=w-tw-20:y=h-th-20:fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
-);
-        );
+        cmd = cmd.videoFilters("drawtext=text='clipstorm.ai':fontcolor=white:fontsize=24:alpha=0.6:x=w-tw-20:y=h-th-20:fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf");
       }
+      
 
       cmd.on("end", resolve).on("error", reject).run();
     });
